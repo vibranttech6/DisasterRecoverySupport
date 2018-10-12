@@ -1,6 +1,7 @@
 package com.vibrant.disasterrecoverysupport;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,14 +16,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         instance = this;
-        Button button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainActivity.getInstance(), Signup.class
-                ));
+        int secondsDelayed = 2;
+        new Handler().postDelayed(new Runnable() {
+            public void run() {
+                startActivity(new Intent(MainActivity.getInstance(), Login.class));
+                finish();
             }
-        });
+        }, secondsDelayed * 1000);
 
 
 
